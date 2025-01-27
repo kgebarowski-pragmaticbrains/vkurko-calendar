@@ -39,9 +39,8 @@
         ><i class="{$theme.icon} ec-{button}"></i></button>
     {:else if button == 'today'}
         <button
-            class="{$theme.button} ec-{button}"
+            class="{$theme.button} ec-{button} {isToday ? $theme.active : ''}"
             on:click={() => $date = cloneDate(today)}
-            disabled={isToday}
         >{$buttonText[button]}</button>
     {:else if $customButtons[button]}
         <button
