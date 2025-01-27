@@ -149,8 +149,8 @@ export default [
             format: 'iife',
             name: 'EventCalendar',
             file: 'packages/build/event-calendar.min.js',
-            sourcemap: true,
-            banner: '/*!\nEventCalendar v' + pkg.version + '\nhttps://github.com/vkurko/calendar\n*/'
+            sourcemap: false,
+            banner: '/*!\nEventCalendar v' + pkg.version + '\nhttps://github.com/kgebarowski-pragmaticbrains/vkurko-calendar\n*/'
         },
         plugins: [
             // If you have external dependencies installed from
