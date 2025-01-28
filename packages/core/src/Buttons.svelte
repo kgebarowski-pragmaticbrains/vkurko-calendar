@@ -4,7 +4,7 @@
 
     export let buttons;
 
-    let {_currentRange, _viewTitle, buttonText, customButtons, date, duration, hiddenDays, theme, view} = getContext('state');
+    let {_currentRange, _viewTitle, buttonText, customButtons, date, duration, hiddenDays, theme, view, calendarHeader} = getContext('state');
 
     let today = setMidnight(createDate()), isToday;
 
@@ -23,6 +23,10 @@
     {#if button == 'title'}
         <!-- svelte-ignore a11y-missing-content -->
         <div class="{$theme.title}" use:setContent={$_viewTitle}></div>
+    {:else if button == 'header'}
+        <svelte:element this={$calendarHeader.tag} class="{$theme.calendarHeader}">
+            {$calendarHeader.value}
+        </svelte:element>
     {:else if button == 'prev'}
         <button
             type="button"

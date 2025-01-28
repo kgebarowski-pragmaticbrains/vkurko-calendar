@@ -11,6 +11,11 @@ import {
 
 export function createOptions(plugins) {
     let options = {
+        calendarHeader: {
+            tag: 'h2',
+            value: 'Calendar',
+        },
+
         allDayContent: undefined,
         allDaySlot: true,
         buttonText: {
@@ -50,7 +55,7 @@ export function createOptions(plugins) {
         firstDay: 0,
         flexibleSlotTimeLimits: false,  // ec option
         headerToolbar: {
-            start: 'title',
+            start: 'header title',
             center: '',
             end: 'today prev,next'
         },
@@ -77,6 +82,8 @@ export function createOptions(plugins) {
         slotMinTime: '00:00:00',
         slotWidth: 72,
         theme: {
+            calendarHeader: 'ec-calendar-header',
+
             allDay: 'ec-all-day',
             active: 'ec-active',
             bgEvent: 'ec-bg-event',
