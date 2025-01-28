@@ -6,7 +6,7 @@
 </script>
 
 <div class="{$theme.header}" bind:this={$_headerEl}>
-    <div class="{$theme.days}" role="row">
+    <div class="{$theme.days}">
         {#each $_viewDates as date}
             <div class="{$theme.day} {$theme.weekdays?.[date.getUTCDay()]}">
                 {#if toSeconds($slotDuration)}
@@ -19,7 +19,7 @@
                     </div>
                     <div class="{$theme.times}">
                         {#each $_dayTimes[date.getTime()] as time}
-                            <div class="{$theme.time}" role="columnheader">
+                            <div class="{$theme.time}">
                                 <time
                                     datetime="{time[0]}"
                                     use:setContent={time[1]}
@@ -28,7 +28,7 @@
                         {/each}
                     </div>
                 {:else}
-                        <div class="{$theme.time}" role="columnheader">
+                        <div class="{$theme.time}">
                             <time
                                 datetime="{toISOString(date, 10)}"
                                 aria-label="{$_intlDayHeaderAL.format(date)}"

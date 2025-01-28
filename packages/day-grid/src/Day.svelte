@@ -91,7 +91,6 @@
 <div
     bind:this={el}
     class="{$theme.day} {$theme.weekdays?.[date.getUTCDay()]}{isToday ? ' ' + $theme.today : ''}{otherMonth ? ' ' + $theme.otherMonth : ''}{highlight ? ' ' + $theme.highlight : ''}"
-    role="cell"
     on:pointerleave={$_interaction.pointer?.leave}
     on:pointerdown={$_interaction.action?.select}
 >

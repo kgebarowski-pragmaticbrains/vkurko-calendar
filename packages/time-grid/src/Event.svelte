@@ -125,7 +125,6 @@
     bind:this={el}
     class="{classes}"
     {style}
-    role="{onclick ? 'button' : undefined}"
     tabindex="{onclick ? 0 : undefined}"
     on:click={onclick}
     on:keydown={onclick && keyEnter(onclick)}

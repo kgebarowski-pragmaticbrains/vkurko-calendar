@@ -33,11 +33,11 @@
                     <div class="{$theme.days}">
                         {#each loops[1] as item1}
                             {#if $datesAboveResources}
-                                <div class="{$theme.day}" role="columnheader">
+                                <div class="{$theme.day}">
                                     <Label resource={item1} date={item0} />
                                 </div>
                             {:else}
-                                <div class="{$theme.day} {$theme.weekdays?.[item1.getUTCDay()]}" role="columnheader">
+                                <div class="{$theme.day} {$theme.weekdays?.[item1.getUTCDay()]}">
                                     <time
                                         datetime="{toISOString(item1, 10)}"
                                         aria-label="{resourceLabels[i]}{$_intlDayHeaderAL.format(item1)}"

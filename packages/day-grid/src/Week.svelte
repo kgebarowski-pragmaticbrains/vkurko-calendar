@@ -124,7 +124,7 @@
     }
 </script>
 
-<div class="{$theme.days}" role="row">
+<div class="{$theme.days}">
     {#each dates as date, i}
         <Day {date} {chunks} {bgChunks} {longChunks} {iChunks} {dates} bind:this={refs[i]} />
     {/each}

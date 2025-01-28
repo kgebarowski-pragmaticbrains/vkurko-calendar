@@ -67,7 +67,7 @@
     });
 </script>
 
-<div class="{$theme.days}" style="flex-basis: {max(height, 34)}px" role="row">
+<div class="{$theme.days}" style="flex-basis: {max(height, 34)}px">
     {#each $_viewDates as date, i}
         <Day {date} {resource} {chunks} {bgChunks} {longChunks} {iChunks} bind:this={refs[i]}/>
     {/each}

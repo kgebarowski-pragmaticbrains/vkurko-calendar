@@ -16,7 +16,6 @@
         getPayload,
         flushDebounce,
         hasYScroll,
-        listView,
         task,
         prevDate, nextDate
     } from './lib.js';
@@ -141,7 +140,6 @@
 <div
     class="{$theme.calendar} {$theme.view}{$_scrollable ? ' ' + $theme.withScroll : ''}{$_iClass ? ' ' + $theme[$_iClass] : ''}"
     style:height={$height}
-    role="{listView($view) ? 'list' : 'table'}"
 >
     <Toolbar/>
     <svelte:component this={$_viewComponent}/>

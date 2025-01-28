@@ -15,7 +15,7 @@
         <time class="{$theme.time}" datetime="{time[0]}" use:setContent={time[2] ? time[1] : ''}></time>
     {/each}
 </div>
-<div class="{$theme.days}" role="row">
+<div class="{$theme.days}">
     <div class="{$theme.lines}"><slot name="lines"></slot></div>
     <slot></slot>
 </div>

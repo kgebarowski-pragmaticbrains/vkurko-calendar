@@ -6,9 +6,9 @@
 </script>
 
 <div class="{$theme.header}">
-    <div class="{$theme.days}" role="row">
+    <div class="{$theme.days}">
         {#each $_days as day}
-            <div class="{$theme.day} {$theme.weekdays?.[day.getUTCDay()]}" role="columnheader">
+            <div class="{$theme.day} {$theme.weekdays?.[day.getUTCDay()]}">
                 <span
                     aria-label="{$_intlDayHeaderAL.format(day)}"
                     use:setContent={$_intlDayHeader.format(day)}
