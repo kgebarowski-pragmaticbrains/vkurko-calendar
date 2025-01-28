@@ -59,7 +59,7 @@
 
     $: {
         if (!$weekNumbers) {
-            style = 'visibility:hidden;';
+            style = 'display:none;';
         }
     }
 
