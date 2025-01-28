@@ -22,7 +22,7 @@
 {#each buttons as button}
     {#if button == 'title'}
         <!-- svelte-ignore a11y-missing-content -->
-        <h2 class="{$theme.title}" use:setContent={$_viewTitle}></h2>
+        <div class="{$theme.title}" use:setContent={$_viewTitle}></div>
     {:else if button == 'prev'}
         <button
             class="{$theme.button} ec-{button}"
