@@ -15,6 +15,7 @@ export function createOptions(plugins) {
             tag: 'h2',
             value: 'Calendar',
         },
+        eventOffset: 0,
 
         allDayContent: undefined,
         allDaySlot: true,

@@ -21,7 +21,7 @@
 
     let {displayEventEnd, eventAllUpdated, eventBackgroundColor, eventTextColor, eventClick, eventColor, eventContent,
         eventClassNames, eventDidMount, eventMouseEnter, eventMouseLeave, resources, theme,
-        _view, _intlEventTime, _interaction, _iClasses, _tasks} = getContext('state');
+        _view, _intlEventTime, _interaction, _iClasses, _tasks, eventOffset} = getContext('state');
 
     let el;
     let event;
@@ -42,10 +42,12 @@
         let bgColor = event.backgroundColor || resourceBackgroundColor(event, $resources) || $eventBackgroundColor || $eventColor;
         let txtColor = event.textColor || resourceTextColor(event, $resources) || $eventTextColor;
         if (bgEvent(display)) {
-            style = `width:calc(${chunk.days * 100}% + ${(chunk.days - 1)}px);`;
+            style = `width:calc(${chunk.days * 100}% + ${(chunk.days - 1)}px - ${$eventOffset * 2}px);` +
+                    `left: ${$eventOffset}px;`;
         } else {
             style =
-                `width:calc(${chunk.days * 100}% + ${(chunk.days - 1) * 7}px);` +
+                `width:calc(${chunk.days * 100}% + ${(chunk.days - 1) * 7}px - ${$eventOffset * 2}px);` +
+                `left: ${$eventOffset}px;` +
                 `margin-top:${event._margin ?? margin}px;`
             ;
         }

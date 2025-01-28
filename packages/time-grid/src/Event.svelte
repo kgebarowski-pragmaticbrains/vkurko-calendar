@@ -22,7 +22,7 @@
     let {displayEventEnd, eventAllUpdated, eventBackgroundColor, eventTextColor, eventColor, eventContent, eventClick,
         eventDidMount, eventClassNames, eventMouseEnter, eventMouseLeave, slotEventOverlap, slotDuration, slotHeight,
         resources, theme,
-        _view, _intlEventTime, _interaction, _iClasses, _slotTimeLimits, _tasks} = getContext('state');
+        _view, _intlEventTime, _interaction, _iClasses, _slotTimeLimits, _tasks, eventOffset} = getContext('state');
 
     let el;
     let event;
@@ -43,15 +43,17 @@
         let offset = $_slotTimeLimits.min.seconds;
         let start = (chunk.start - date) / 1000;
         let end = (chunk.end - date) / 1000;
-        let top = (start - offset) / step * $slotHeight;
-        let height = (end - start) / step * $slotHeight;
+        let basicTop = (start - offset) / step * $slotHeight;
+        let basicHeight = (end - start) / step * $slotHeight;
         let maxHeight = ($_slotTimeLimits.max.seconds - start) / step * $slotHeight;
         let bgColor = event.backgroundColor || resourceBackgroundColor(event, $resources) || $eventBackgroundColor || $eventColor;
         let txtColor = event.textColor || resourceTextColor(event, $resources) || $eventTextColor;
+        let basicLeft = 100 / chunk.group.columns.length * chunk.column;
+        let basicWidth = 100 / chunk.group.columns.length * ($slotEventOverlap ? 0.5 * (1 + chunk.group.columns.length - chunk.column) : 1);
         style =
-            `top:${top}px;` +
-            `min-height:${height}px;` +
-            `height:${height}px;` +
+            `top:calc(${basicTop}px + ${$eventOffset}px);` +
+            `min-height:calc(${basicHeight}px - ${$eventOffset * 2}px);` +
+            `height:calc(${basicHeight}px - ${$eventOffset * 2}px);` +
             `max-height:${maxHeight}px;`
         ;
         if (bgColor) {
@@ -63,8 +65,8 @@
         if (!bgEvent(display) && !helperEvent(display) || ghostEvent(display)) {
             style +=
                 `z-index:${chunk.column + 1};` +
-                `left:${100 / chunk.group.columns.length * chunk.column}%;` +
-                `width:${100 / chunk.group.columns.length * ($slotEventOverlap ? 0.5 * (1 + chunk.group.columns.length - chunk.column) : 1)}%;`
+                `left:calc(${basicLeft}% + ${$eventOffset}px);` +
+                `width:calc(${basicWidth}% - ${$eventOffset * 1.5}px);`
             ;
         }
         style += event.styles.join(';');
