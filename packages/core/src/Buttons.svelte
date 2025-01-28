@@ -25,31 +25,36 @@
         <div class="{$theme.title}" use:setContent={$_viewTitle}></div>
     {:else if button == 'prev'}
         <button
-            class="{$theme.button} ec-{button}"
+            type="button"
+            class="{$theme.button} ec-{button} tooltip-trigger"
             aria-label={$buttonText.prev}
             title={$buttonText.prev}
             on:click={prev}
         ><i class="{$theme.icon} ec-{button}"></i></button>
     {:else if button == 'next'}
         <button
-            class="{$theme.button} ec-{button}"
+            type="button"
+            class="{$theme.button} ec-{button} tooltip-trigger"
             aria-label={$buttonText.next}
             title={$buttonText.next}
             on:click={next}
         ><i class="{$theme.icon} ec-{button}"></i></button>
     {:else if button == 'today'}
         <button
+            type="button"
             class="{$theme.button} ec-{button} {isToday ? $theme.active : ''}"
             on:click={() => $date = cloneDate(today)}
         >{$buttonText[button]}</button>
     {:else if $customButtons[button]}
         <button
+            type="button"
             class="{$theme.button} ec-{button}{$customButtons[button].active ? ' ' + $theme.active : ''}"
             on:click={$customButtons[button].click}
             use:setContent={$customButtons[button].text}
         ></button>
     {:else if button != ''}
         <button
+            type="button"
             class="{$theme.button}{$view === button ? ' ' + $theme.active : ''} ec-{button}"
             on:click={() => $view = button}
         >{$buttonText[button]}</button>
