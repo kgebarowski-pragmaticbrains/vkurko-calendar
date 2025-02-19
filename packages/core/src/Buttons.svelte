@@ -30,7 +30,7 @@
     {:else if button == 'prev'}
         <button
             type="button"
-            class="{$theme.button} ec-{button} tooltip-trigger"
+            class="{$theme.button} ec-{button}"
             aria-label={$buttonText.prev}
             title={$buttonText.prev}
             on:click={prev}
@@ -38,7 +38,7 @@
     {:else if button == 'next'}
         <button
             type="button"
-            class="{$theme.button} ec-{button} tooltip-trigger"
+            class="{$theme.button} ec-{button}"
             aria-label={$buttonText.next}
             title={$buttonText.next}
             on:click={next}
