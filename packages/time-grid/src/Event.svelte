@@ -48,8 +48,6 @@
         let maxHeight = ($_slotTimeLimits.max.seconds - start) / step * $slotHeight;
         let bgColor = event.backgroundColor || resourceBackgroundColor(event, $resources) || $eventBackgroundColor || $eventColor;
         let txtColor = event.textColor || resourceTextColor(event, $resources) || $eventTextColor;
-        let basicLeft = 100 / chunk.group.columns.length * chunk.column;
-        let basicWidth = 100 / chunk.group.columns.length * ($slotEventOverlap ? 0.5 * (1 + chunk.group.columns.length - chunk.column) : 1);
         style =
             `top:calc(${basicTop}px + ${$eventOffset}px);` +
             `min-height:calc(${basicHeight}px - ${$eventOffset * 2}px);` +
@@ -63,6 +61,8 @@
             style += `color:${txtColor};`;
         }
         if (!bgEvent(display) && !helperEvent(display) || ghostEvent(display)) {
+            let basicLeft = 100 / chunk.group.columns.length * chunk.column;
+            let basicWidth = 100 / chunk.group.columns.length * ($slotEventOverlap ? 0.5 * (1 + chunk.group.columns.length - chunk.column) : 1);
             style +=
                 `z-index:${chunk.column + 1};` +
                 `left:calc(${basicLeft}% + ${$eventOffset}px);` +
